@@ -1,0 +1,2 @@
+class Webdatum < ApplicationRecord
+end

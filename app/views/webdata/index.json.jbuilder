@@ -1,0 +1,1 @@
+json.array! @webdata, partial: 'webdata/webdatum', as: :webdatum
