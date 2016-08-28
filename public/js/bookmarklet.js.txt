@@ -1,1 +1,1 @@
-javascript:(function(){var s=document.createElement("script");s.charset="UTF-8";s.language="javascript";s.type="text/javascript";var d=new Date;s.src="http://localhost:3000/js/core.js";document.body.appendChild(s)})();
+javascript:(function(){var s=document.createElement("script");s.charset="UTF-8";s.language="javascript";s.type="text/javascript";var d=new Date;s.src="https://atodeyomo.herokuapp.com/js/core.js";document.body.appendChild(s)})();
