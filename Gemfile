@@ -31,6 +31,10 @@ gem 'jbuilder', '~> 2.5'
 # 追加
 gem 'figaro'
 
+group :production do
+  gem 'pg'
+end
+
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
