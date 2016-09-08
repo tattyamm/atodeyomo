@@ -7,9 +7,9 @@
 	var sourceObj = document.createElement('input');
 	urlObj.name = "url";
 	urlObj.value = location.href;
-	titleObj.name = "webdatum";
+	titleObj.name = "title";
 	titleObj.value = document.title;
-	sourceObj.name = "source";
+	sourceObj.name = "webdatum";
 	sourceObj.value = document.lastChild.innerHTML;
 
 	// form
@@ -25,7 +25,8 @@
 
 	// submit
 	var pageCharset = document.charset;
-	formeObj.action = "https://atodeyomo.herokuapp.com/api/webdata";
+	//formeObj.action = "https://atodeyomo.herokuapp.com/api/webdata";
+	formeObj.action = "http://localhost:3000/api/webdata";
 	formeObj.method = "POST";
 	formeObj.acceptCharset = "utf-8";
 	document.charset = "utf-8";

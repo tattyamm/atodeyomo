@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>Url</th>
+      <th>Title</th>
       <th>Webdata</th>
       <th colspan="3"></th>
     </tr>
@@ -15,6 +16,7 @@
     <% @webdata.each do |webdatum| %>
       <tr>
         <td><%= webdatum.url %></td>
+        <td><%= webdatum.title %></td>
         <td><%= webdatum.webdata %></td>
         <td><%= link_to 'Show', webdatum %></td>
         <td><%= link_to 'Edit', edit_webdatum_path(webdatum) %></td>

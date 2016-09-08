@@ -63,7 +63,7 @@ class WebdataController < ApplicationController
 
   def api_create
     p params
-    webdatum = Webdatum.new({url: params[:url], webdata:params[:webdatum]})
+    webdatum = Webdatum.new({url: params[:url], title:params[:title], webdata:params[:webdatum]})
     p webdatum
     webdatum.save
     "oncreate"
@@ -78,7 +78,7 @@ class WebdataController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def webdatum_params
-      params.require(:webdatum).permit(:url, :webdata)
+      params.require(:webdatum).permit(:url, :title, :webdata)
     end
 
 end
