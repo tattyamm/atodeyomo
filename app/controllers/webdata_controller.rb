@@ -62,11 +62,16 @@ class WebdataController < ApplicationController
   end
 
   def api_create
-    p params
-    webdatum = Webdatum.new({url: params[:url], title:params[:title], webdata:params[:webdatum]})
+    # 取得に使ったjsは不要
+    remove_pattern = /http:\/\/localhost:3000\/js\/core\.js/;
+    p remove_pattern
+    webdatum_formatted = params[:webdatum].gsub(remove_pattern, "")
+
+    webdatum = Webdatum.new({url: params[:url], title:params[:title], webdata:webdatum_formatted})
     p webdatum
     webdatum.save
-    "oncreate"
+
+    redirect_to(params[:url])
   end
 
 
