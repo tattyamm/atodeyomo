@@ -30,6 +30,7 @@ gem 'jbuilder', '~> 2.5'
 
 # 追加
 gem 'figaro'
+gem 'sendgrid-ruby'
 
 group :production do
   gem 'pg'
