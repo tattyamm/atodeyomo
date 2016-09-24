@@ -73,7 +73,12 @@ class WebdataController < ApplicationController
     webdatum = Webdatum.new({url: params[:url], title:params[:title], webdata:webdatum_formatted})
     p webdatum
     webdatum.save
-    send_mail
+    send_mail(
+      ENV['MY_MAIL_FROM'],
+      ENV['MY_MAIL_TO'],
+      "mail subject!",
+      "Hello, <br><b>Email!</b>"
+    )
 
     redirect_to(params[:url])
   end
