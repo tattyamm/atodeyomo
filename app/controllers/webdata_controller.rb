@@ -73,11 +73,13 @@ class WebdataController < ApplicationController
     webdatum = Webdatum.new({url: params[:url], title:params[:title], webdata:webdatum_formatted})
     p webdatum
     webdatum.save
+
+
     send_mail(
       ENV['MY_MAIL_FROM'],
       ENV['MY_MAIL_TO'],
-      "mail subject!",
-      "Hello, <br><b>Email!</b>"
+      mail_title(params[:title]),
+      mail_body(params[:url], params[:title], webdatum_formatted)
     )
 
     redirect_to(params[:url])
@@ -94,4 +96,20 @@ class WebdataController < ApplicationController
       params.require(:webdatum).permit(:url, :title, :webdata)
     end
 
+    def mail_title(title)
+      "[atodeyomo]" + title
+    end
+
+    def mail_body(url, title, webdata)
+      #ヘッダは不要？
+      remove_pattern = /<head>(.*)<\/head>/m;
+      webdatum_formatted = webdata.gsub(remove_pattern, "")
+
+      ENV['TZ'] = 'Asia/Tokyo'
+      t = Time.now
+      time_str = t.strftime("%Y年%m月%d日 %H:%M:%S")
+      info_html = "<div style='border:#000 solid 1px; padding:10px;'>このページは#{time_str}に「#{title}」( #{url} )から取得しました。</div>"
+      mail_body = info_html + webdatum_formatted
+      mail_body
+    end
 end
