@@ -1,24 +1,19 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+「あとで読む」をhttpsページで動作させることを目的に作成
 
-Things you may want to cover:
+機能的には、
 
-* Ruby version
 
-* System dependencies
 
-* Configuration
 
-* Database creation
 
-* Database initialization
+javascript中のurlがlocalhostに決め打ちになってる
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+application.ymlには次の値を設定
 
-* Deployment instructions
 
-* ...
+sendgrid.com に登録が必要です。
+なお、開封確認機能は今回不要なので、設定からoffにしましょう。（imgタグが自動で埋め込まれてしまう）
+https://app.sendgrid.com/settings/tracking

@@ -4,17 +4,21 @@
 	var formeObj = document.createElement('form');
 	var urlObj = document.createElement('input');
 	var titleObj = document.createElement('input');
+	var passObj = document.createElement('input');
 	var sourceObj = document.createElement('input');
 	urlObj.name = "url";
 	urlObj.value = location.href;
 	titleObj.name = "title";
 	titleObj.value = document.title;
+	passObj.name = "pw";
+	passObj.value = "<%= @password %>";
 	sourceObj.name = "webdatum";
 	sourceObj.value = document.lastChild.innerHTML;
 
 	// form
 	formeObj.appendChild(urlObj);
 	formeObj.appendChild(titleObj);
+	formeObj.appendChild(passObj);
 	formeObj.appendChild(sourceObj);
 	formeObj.style.display = 'none';
 	try{

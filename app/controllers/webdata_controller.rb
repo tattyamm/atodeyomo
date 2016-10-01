@@ -2,7 +2,9 @@ include SendGrid
 include Common
 
 class WebdataController < ApplicationController
+  protect_from_forgery with: :null_session
   before_action :set_webdatum, only: [:show, :edit, :update, :destroy]
+
 
   # GET /webdata
   # GET /webdata.json
@@ -65,6 +67,13 @@ class WebdataController < ApplicationController
   end
 
   def api_create
+    # 簡単な認証
+    if (ENV['PASSWORD'] != Digest::SHA256.hexdigest(params[:pw]))
+      p "password miss"
+      redirect_to(params[:url])
+      return
+    end
+
     # 取得に使ったjsは不要
     remove_pattern = /http:\/\/localhost:3000\/js\/core\.js/;
     p remove_pattern
@@ -73,7 +82,6 @@ class WebdataController < ApplicationController
     webdatum = Webdatum.new({url: params[:url], title:params[:title], webdata:webdatum_formatted})
     p webdatum
     webdatum.save
-
 
     send_mail(
       ENV['MY_MAIL_FROM'],
