@@ -30,7 +30,7 @@
 	// submit
 	var pageCharset = document.charset;
 	//formeObj.action = "https://atodeyomo.herokuapp.com/api/webdata";
-	formeObj.action = "http://localhost:3000/api/webdata";
+	formeObj.action = "<%= @baseurl %>/api/webdata";
 	formeObj.method = "POST";
 	formeObj.acceptCharset = "utf-8";
 	document.charset = "utf-8";
