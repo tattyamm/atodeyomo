@@ -105,7 +105,7 @@ class WebdataController < ApplicationController
     end
 
     def mail_title(title)
-      "[atodeyomo]" + title
+      "[atode]" + title
     end
 
     def mail_body(url, title, webdata)
