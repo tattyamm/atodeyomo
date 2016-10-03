@@ -1,7 +1,7 @@
 <script type="text/javascript">
 	function showBookmarklet() {
 		var pw = document.getElementById('textpw').value ;
-		var previewText = "javascript:(function(){var s=document.createElement(&quot;script&quot;);s.charset=&quot;UTF-8&quot;;s.language=&quot;javascript&quot;;s.type=&quot;text/javascript&quot;;var d=new Date;s.src=&quot;" + "<%= @baseurl %>" + "/core.js?pw="+ pw +"&quot;;document.body.appendChild(s)})();"
+		var previewText = 'javascript:(function(){var s=document.createElement("script");s.charset="UTF-8";s.language="javascript";s.type="text/javascript";var d=new Date;s.src="' + '<%= @baseurl %>' + '/core.js?pw='+ pw + '";document.body.appendChild(s)})();'
 		document.getElementById('bookmarkletPreview').innerText = previewText ;
 	}
 </script>
