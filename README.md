@@ -8,6 +8,7 @@
 ## Requirement
 * herokuでの動作を想定しています
    * Heroku Postgres Add-onが必要
+   * ただし保存機能はコメントアウトしてある。保存するときは webdatum.save のコメントアウトを外す。
 * sendgrid.com に登録
    * なお、開封確認機能は今回不要なので、設定からoffにしましょう。（imgタグが自動で埋め込まれてしまう）
    * [https://app.sendgrid.com/settings/tracking](https://app.sendgrid.com/settings/tracking)
