@@ -77,7 +77,6 @@ class WebdataController < ApplicationController
     # 取得に使ったjsは不要
     url_pattern = Regexp.escape(getUrl + "\/core.js?")
     remove_pattern = /#{url_pattern}[0-9a-zA-Z=]*/;
-    p remove_pattern
     webdatum_formatted = params[:webdatum].gsub(remove_pattern, "")
 
     webdatum = Webdatum.new({url: params[:url], title:params[:title], webdata:webdatum_formatted})
