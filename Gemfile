@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
-ruby '2.6.5'
+ruby '2.7.6'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.4', '>= 5.2.4.3'
+gem 'rails', '5.2.5'
 # Use Puma as the app server
 gem 'puma', '~> 4.3'
 # Use SCSS for stylesheets
@@ -32,7 +32,7 @@ gem 'jbuilder', '~> 2.5'
 # 追加
 gem 'figaro'
 gem 'sendgrid-ruby'
-gem 'therubyracer'
+#gem 'therubyracer'
 
 group :production do
   gem 'pg'
