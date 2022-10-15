@@ -13,6 +13,6 @@ module Atodeyomo
     # -- all .rb files in that directory are automatically loaded.
 
     config.time_zone = 'Tokyo'
-    config.active_record.default_timezone = :local
+    #config.active_record.default_timezone = :local
   end
 end

@@ -79,8 +79,8 @@ class WebdataController < ApplicationController
     remove_pattern = /#{url_pattern}[0-9a-zA-Z=]*/;
     webdatum_formatted = params[:webdatum].gsub(remove_pattern, "")
 
-    webdatum = Webdatum.new({url: params[:url], title:params[:title], webdata:webdatum_formatted})
-    p webdatum
+    #webdatum = Webdatum.new({url: params[:url], title:params[:title], webdata:webdatum_formatted})
+    #p webdatum
     #webdatum.save
 
     send_mail(
