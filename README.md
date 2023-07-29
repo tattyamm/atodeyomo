@@ -7,38 +7,24 @@
 
 
 ## Requirement
-* herokuでの動作を想定しています
-   * Heroku Postgres Add-onが必要
-   * ただし保存機能はコメントアウトしてある。保存するときは webdatum.save のコメントアウトを外す。
-* sendgrid.com に登録
-   * なお、開封確認機能は今回不要なので、設定からoffにしましょう。（imgタグが自動で埋め込まれてしまう）
-   * [https://app.sendgrid.com/settings/tracking](https://app.sendgrid.com/settings/tracking)
-* config/application.ymlに次の値を設定
+* [fly.io](https://fly.io/)での動作を想定しています
+* gmailを使いメール送信します。「アプリ パスワード」の登録が必要です。
+* dotenv-rails向けの.envファイルに値を定義
+* fly.ioに対して実行
 
 ```
-SENDGRID_API_KEY: "sendgridのAPIキー"
-MY_MAIL_FROM: "送信元メールアドレス"
-MY_MAIL_TO: "送信先メールアドレス"
-PASSWORD: "パスワード(英数字のみ)のsha256"
-```
-
-* Herokuに対して実行
-
-```
-heroku run rake db:migrate
-figaro heroku:set -e production
+fly launch --ha=false
+fly deploy --ha=false --strategy immediate
+設定の反映
+flyctl secrets set PASSWORD=X MAIL_FROM=X MAIL_TO=X SMTL_USER_NAME=X SMTP_PASSWORD=X
 ```
 
 ## 使い方
-* トップページでapplication.ymlに設定したのと同じパスワードを入力した上で、生成されたbookmarkletを登録する
+* railsを動作させたときのトップページで設定したのと同じパスワードを入力した上で、生成されたbookmarkletをブックマークへ登録する
 * メールで送信したいページで、bookmarkletを動作させる
 
 ## 補足
-* パスワードをつけたが、これではあまり意味がない
-
-## Versions
-* ruby 2.3.0p0 (2015-12-25 revision 53290)
-* Rails Rails 5.0.0.1
+* 1人用に作成しているため、複数人で利用することはできません
 
 ## License
 This software is released under the MIT License, see LICENSE.txt.

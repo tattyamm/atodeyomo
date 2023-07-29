@@ -1,1 +1,0 @@
-json.partial! "webdata/webdatum", webdatum: @webdatum
